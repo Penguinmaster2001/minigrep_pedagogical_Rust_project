@@ -1,12 +1,12 @@
 use std::{env, process};
 
-use minigrep::{config, run};
+use minigrep::{run, Config};
 
 fn main() {
     let args: Vec<String> = env::args().collect();
 
     let config;
-    match config::Config::build(&args) {
+    match Config::build(&args) {
         Ok(ok) => config = ok,
         Err(err) => {
             println!("Error parsing args: {err}");

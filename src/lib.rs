@@ -2,9 +2,8 @@
 use std::error::Error;
 use std::fs;
 
-use config::Config;
-
-pub mod config;
+mod config;
+pub use config::Config;
 
 
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
