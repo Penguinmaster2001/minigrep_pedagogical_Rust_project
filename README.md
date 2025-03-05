@@ -29,11 +29,55 @@ cargo run
 
 ## Process, Thoughts, and Learning
 
-My "main" language is C#, so a lot of my learning is going to relate to differences and simularities between the languages.
+My "main" language is C#, so a lot of my learning is going to relate to differences and similarities between the languages.
 
 ### Modules, files, paths
 
-It's weird having declairations, methods, and implementations spread around. I prefer objects over C-like structs.
+It's weird having declarations, methods, and implementations spread around. I prefer objects over C-like structs.
+
+These files are roots for *crates* inside a *package*
+- `src/main.rs`
+- `src/bin/**.rs`
+- `src/lib.rs` Note: This makes a library crate with the same name as the package.
+
+A *module* is declared inside crate root files with `mod <name>`
+The code for a module is in
+1. A block following the declaration
+2. `src/<name>.rs`
+3. `src/<name>/mod.rs` (deprecated)
+
+*Submodules* are declared inside any other files, and the code is placed in the same places just nested in directories or `mod` blocks.
+
+So a package could look like this:
+
+```bash
+$ ls -R package
+
+> package/src:
+> main.rs lib.rs mod.rs module/
+>
+> package/src/module:
+> submodule.rs
+
+$ cat package/src/lib.rs
+
+> pub mod module;
+> /* library crate code */
+
+$ cat package/src/module.rs
+
+> pub mod submodule;
+> /* module code */
+
+$ cat package/src/module/submodule.rs
+
+> /* code for submodule */
+
+$ cat package/src/main.rs
+
+> use package::{self, module, module::submodule}
+> /* binary crate code */
+```
 
 ### Vecs and Strings
 
