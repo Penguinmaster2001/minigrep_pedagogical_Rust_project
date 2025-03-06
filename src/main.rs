@@ -9,13 +9,14 @@ fn main() {
     match Config::build(&args) {
         Ok(ok) => config = ok,
         Err(err) => {
-            println!("Error parsing args: {err}");
+            eprintln!("Error parsing args: {err}");
             println!("Usage: {} <query> <file path>", args[0]);
-            process::exit(0)
+            process::exit(1)
         }
     };
 
     if let Err(e) = run(config) {
-        println!("Program error: {e}");
+        eprintln!("Program error: {e}");
+        process::exit(2)
     }
 }
