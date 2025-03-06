@@ -5,7 +5,7 @@ My implementation of the project in [Chapter 12](https://doc.rust-lang.org/stabl
 
 I have been going through the book for the past few days and after this chapter I hope I'll finally be able to write a few of my own projects in Rust.
 
-*Minigrep* is a command line tool similar to *grep*.
+*Minigrep* is a command line tool for finding lines with substrings in files.
 
 ***
 
@@ -166,8 +166,12 @@ fn func_2<'a>(to_ret: &'a mut MyStruct, not_ret: &i32) -> &'a i32 {
 
 It's nice to have an almost interface to work with.
 
+So far in the book these havn't been properly introduced, but boxing is a big difference from interfaces.
+
 ***
 
 ### Testing
+
+A part of this chapter is dedicated to test driven development. I should probably do that more.
 
 > Anthony Cieri [anthonycieri.com](https://anthonycieri.com)
