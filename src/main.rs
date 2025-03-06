@@ -15,9 +15,6 @@ fn main() {
         }
     };
 
-    println!("Searching for {}", config.get_query());
-    println!("In file {}", config.get_file_path());
-
     if let Err(e) = run(config) {
         println!("Program error: {e}");
     }
