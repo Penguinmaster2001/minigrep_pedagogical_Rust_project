@@ -109,6 +109,8 @@ I like the functional style Rust supports, obviously it's pretty similar to .NET
 
 I like errors. It would be cool if C# had native support for errors as well as exceptions. Errors feel much easier to work with for things that are expected to go wrong like io.
 
+Output to stderr with `eprintln!()` or `eprint!()`
+
 ***
 
 ### Lifetimes
