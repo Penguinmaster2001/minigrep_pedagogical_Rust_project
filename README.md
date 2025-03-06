@@ -1,9 +1,9 @@
 
 # Minigrep
 
-My implementation of the project in [Chapter 12](https://doc.rust-lang.org/stable/book/ch12-00-an-io-project.html) of the [Rust Book](https://doc.rust-lang.org/stable/book/).
+My implementation of the project in Chapters [12: *An I/O Project: Building a Command Line Program*](https://doc.rust-lang.org/stable/book/ch12-00-an-io-project.html) and [13.03: *Improving Our I/O Project*](https://doc.rust-lang.org/stable/book/ch13-03-improving-our-io-project.html) of [*The Rust Programming Language*](https://doc.rust-lang.org/stable/book/).
 
-I have been going through the book for the past few days and after this chapter I hope I'll finally be able to write a few of my own projects in Rust.
+I have been going through the book for the past few days. This is my first Rust project. After I complete it I will be able to create my own Rust projects.
 
 *Minigrep* is a command line tool for finding lines with substrings in files.
 
@@ -13,20 +13,22 @@ I have been going through the book for the past few days and after this chapter 
 
 ### Downloading
 
-***TODO***
-
 ```bash
-git clone <repo>
+git clone https://github.com/Penguinmaster2001/minigrep_pedagogical_Rust_project.git
 ```
 
-### Building and Running
-
-***TODO***
+### Building
 
 ```bash
-cd <repo - minigrep probably>
+cd minigrep_pedagogical_Rust_project
 
-cargo run
+cargo build --release
+```
+
+### Usage
+
+```bash
+./target/release/minigrep <query> <file path>
 ```
 
 ## Process, Thoughts, and Learning
@@ -175,5 +177,7 @@ So far in the book these havn't been properly introduced, but boxing is a big di
 ### Testing
 
 A part of this chapter is dedicated to test driven development. I should probably do that more.
+
+***
 
 > Anthony Cieri [anthonycieri.com](https://anthonycieri.com)
