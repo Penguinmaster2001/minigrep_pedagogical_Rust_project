@@ -105,6 +105,12 @@ I don't work with strings (other than string literals) often, so at least I don'
 `Vec` is similar to `std::vector` in C++, or `List` in C#, or ArrayList I implemented 100 times in Java for uni courses.
 I like the functional style Rust supports, obviously it's pretty similar to .NET LINQ which I also like.
 
+Chapter 13.03 of the book focuses on using iterators and closures to improve this project's code.
+
+Iterators are nice, closures (anonymouse functions) are also nice.
+
+A big difference between Rust iter and .NET LINQ is that Rust has zero overhead abstractions so iterators can be faster than hand written code and closures can be inlined, while LINQ and lambdas can cause a lot of heap allocations and function calls, so are often slower.
+
 ***
 
 ### Errors
