@@ -113,7 +113,52 @@ I like errors. It would be cool if C# had native support for errors as well as e
 
 ### Lifetimes
 
+In order to guarantee safety without GC, the Rust compiler needs to know how long data is going to "live" (be referenced).
 
+If data is freed before all references are invalidated, then use after frees and double frees are possible.
+
+Rust requires that data "outlives" all references.
+
+Lifetimes are how Rust keeps track of references through stack frames.
+
+```rust
+/*
+    This function takes in two refs and returns a ref
+    The returned ref must be one of the refs passed in
+    because anything created in the function would be
+    local to the function and could not be returned
+
+    'a is a lifetime annotation.
+
+    The reference this function returns will be valid
+    for at least as long as *both* num1 and num2 are valid
+    because we don't know which one it returns
+ */
+fn func_1<'a>(num1: &'a i32, num2: &'a i32) -> &'a i32 { /* ... */ }
+
+/*
+    The annotation is only needed on refs that are returned
+ */
+fn func_2<'a>(to_ret: &'a mut i32, not_ret: &i32) -> &'a i32 {
+   *to_ret += not_ret;
+   to_ret
+}
+
+/*
+    Usage with structs, etc.
+
+    Structs with refs need lifetimes as well
+ */
+struct MyStruct<'a> {
+   ref1: &'a i32,
+   ref2: &'a mut i32
+}
+
+fn func_2<'a>(to_ret: &'a mut MyStruct, not_ret: &i32) -> &'a i32 {
+   *to_ret.ref2 += to_ret.ref1 + not_ret;
+   to_ret.ref2
+}
+```
 
 ***
 
